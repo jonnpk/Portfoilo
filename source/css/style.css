@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    background-color: #000002;
+    color: #FFF;
+}
+
+section {
+    padding: 32px 32px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header h2 {
+    font-size: clamp(1.2rem, 2vw, 2.4rem);
+    font-weight: bold;
+}
+
+.section-container.intro {
+    display: flex;
+    justify-content: space-between;
+}
+
+.intro-article-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+h1 {
+    font-size: clamp(4rem, 7vw, 12.8rem);
+    font-weight: 900;
+    color: #FFFF00;
+    line-height: 85%;
+}
+
+.title-line {
+    width: 110%;
+    height: clamp(1px, 1vw, 4px);
+    background-color: #FFFF00;
+}
+
+.intro-article-box {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.intro-article-title {
+    font-size: clamp(2.4rem, 5vw, 8rem);
+    font-weight: 900;
+    line-height: 90%;
+}
+
+.intro-article-text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.intro-article-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.intro-article-text h3 {
+    font-size: clamp(1.6rem, 2vw, 3.6rem);
+    font-weight: 900;
+}
+
+.intro-article-text p {
+    font-size: clamp(1.2rem, 2vw, 2.0rem);
+    font-weight: 400;
+    line-height: 140%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cover-pic,
+.article-pic {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cover-pic.who-is-he {
+    background-image: url(../img/introduce_cover.png);
+}
+
+.cover-pic.his-work {
+    background-image: url(../img/work_cover.png);
+}
+
+.cover-pic.thankyou {
+    background-image: url(../img/end_cover.png);
+}
+
+.article-pic.discovery {
+    background-image: url(../img/introduce_seed.png);
+}
+
+.article-pic.input {
+    background-image: url(../img/introduce_cell.png);
+}
+
+.article-pic.detail {
+    background-image: url(../img/introduce_pixel.png);
+}
+
+.article-pic.tools {
+    background-image: url(../img/introduce_code.png);
+}
+
