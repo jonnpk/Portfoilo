@@ -12,12 +12,15 @@ html {
 body {
     background-color: #000002;
     color: #FFF;
+    font-family: 'Pretendard';
+    overflow: hidden;
 }
 
 section {
     padding: 32px 32px;
     height: 100vh;
     box-sizing: border-box;
+    transition: transform 0.7s ease-in-out;
 }
 
 header {
@@ -26,99 +29,36 @@ header {
 }
 
 header h2 {
-    font-size: clamp(1.2rem, 2vw, 2.4rem);
+    font-size: clamp(1.2rem, 1vw, 1.8rem);
     font-weight: bold;
 }
 
-.section-container.intro {
+.section-container {
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
 
-.intro-article-container {
-    display: flex;
+.section-container.cover {
+    gap: clamp(16px, 2vw, 66px);
+}
+
+.section-container.introduce {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2vw, 32px);
+}
+
+.section-container.work {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: clamp(16px, 2vw, 32px);
+}
+
+.section-container.end {
     flex-direction: column;
-    gap: 80px;
+    align-items: center;
 }
-
-.title {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-h1 {
-    font-size: clamp(4rem, 7vw, 12.8rem);
-    font-weight: 900;
-    color: #FFFF00;
-    line-height: 85%;
-}
-
-.title-line {
-    width: 110%;
-    height: clamp(1px, 1vw, 4px);
-    background-color: #FFFF00;
-}
-
-.intro-article-box {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.intro-article-title {
-    font-size: clamp(2.4rem, 5vw, 8rem);
-    font-weight: 900;
-    line-height: 90%;
-}
-
-.intro-article-text-box {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.intro-article-text {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.intro-article-text h3 {
-    font-size: clamp(1.6rem, 2vw, 3.6rem);
-    font-weight: 900;
-}
-
-.intro-article-text p {
-    font-size: clamp(1.2rem, 2vw, 2.0rem);
-    font-weight: 400;
-    line-height: 140%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .cover-pic,
 .article-pic {
@@ -155,3 +95,275 @@ h1 {
     background-image: url(../img/introduce_code.png);
 }
 
+.article-pic.cgv-tablet {
+    background-image: url(../img/MockUp_CGV_tablet.jpg);
+}
+
+.article-pic.cgv-mobile {
+    background-image: url(../img/MockUp_CGV_m.jpg);
+}
+
+.article-pic.sagac-tablet {
+    background-image: url(../img/MockUp_SAGAC_tablet.jpg);
+}
+
+.article-pic.sagac-mobile {
+    background-image: url(../img/MockUp_SAGAC_m.jpg);
+}
+
+.work-main-pic {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.work-main-pic.cgv-pc {
+    background-image: url(../img/MockUp_CGV_pc.jpg);
+}
+
+.work-main-pic.sagac-pc {
+    background-image: url(../img/MockUp_SAGAC_pc.jpg);
+}
+
+.intro-article-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+    min-height: 0;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+h1 {
+    font-size: clamp(4rem, 7vw, 9.6rem);
+    font-weight: 900;
+    color: #FFFF00;
+    line-height: 85%;
+}
+
+.title-line {
+    width: 100%;
+    height: clamp(1px, 1vw, 4px);
+    background-color: #FFFF00;
+}
+
+.intro-article-box {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.intro-article-title {
+    font-size: clamp(2.4rem, 3vw, 5.6rem);
+    font-weight: 900;
+    line-height: 90%;
+}
+
+.intro-article-text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.intro-article-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.intro-article-text h3 {
+    font-size: clamp(1.6rem, 2vw, 2.4rem);
+    font-weight: 900;
+}
+
+.intro-article-text p {
+    font-size: clamp(1.2rem, 1vw, 1.6rem);
+    font-weight: 400;
+    line-height: 140%;
+    color: #cccccc;
+}
+
+.intro-visual {
+    max-height: 100%;
+}
+
+.intro-visual img {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cover-pic {
+    flex: 1;
+    aspect-ratio: 1024 / 952;
+    max-height: 100%;
+}
+
+.cover-title-box {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: flex-end;
+}
+
+.cover-title-box h2 {
+    font-size: clamp(4.5rem, 7vw, 9.6rem);
+    font-weight: 900;
+    line-height: 80%;
+}
+
+.cover-text {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.cover-text h3 {
+    display: block;
+    width: fit-content;
+    font-size: clamp(1.6rem, 2vw, 3.6rem);
+    font-weight: bold;
+}
+
+.cover-hashtag {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cover-text li {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: #cccccc;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.article-pic {
+    flex: 1;
+}
+
+.article-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.article-text h2 {
+    font-size: clamp(1.8rem, 2vw, 2rem);
+    font-weight: 900;
+    line-height: 130%;
+}
+
+.article-text p {
+    font-size: clamp(1.2rem, 1vw, 1.4rem);
+    line-height: 170%;
+    color: #cccccc;
+    text-indent: 1rem;
+    text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+    color: #FFF;
+}
+
+.indent {
+    display: block;
+    text-indent: 1rem;
+}
+
+.article-text p.tools {
+    text-indent: 0;
+}
+
+.cover-title-box.end {
+    justify-content: unset;
+    gap: 24px;
+}
+
+.cover-title-box.end h2 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: bold;
+}
+
+.cover-title-box.end strong {
+    font-size: clamp(2.4rem, 7vw, 9.6rem);
+    font-weight: 900;
+    line-height: 90%;
+}
+
+.cover-title-box.end p {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.contact {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact h3 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.adress {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.adress li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.adress strong {
+    font-size: 24px;
+}
+
+.adress p {
+    font-size: 20px;
+    color: #cccccc;
+}
+
+.copy {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.copy p {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.copy-pic {
+    width: 120px;
+    height: 120px;
+    background-image: url(../img/card.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
