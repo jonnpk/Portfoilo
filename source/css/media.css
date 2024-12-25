@@ -1,0 +1,26 @@
+@media (min-width: 600px) and (max-width: 1024px) {
+    
+    body {
+        overflow: auto;
+    }
+
+    section {
+        height: auto;
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
+
+    #intro-section {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    .intro-article-box {
+        grid-area: article-box;
+    }
+
+    .section-container.introduce {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

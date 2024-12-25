@@ -2,8 +2,10 @@ let currentSection = 0;
 const sections = document.querySelectorAll('.page');
 const totalSections = sections.length;
 let isScrolling = false; // 스크롤 제어 플래그
+let isListenerActive = true; // 이벤트 리스너 활성 상태 플래그
 
-document.addEventListener('wheel', (event) => {
+
+function handleWheelEvent(event) {
     if (isScrolling) return; // 스크롤 중복 방지
 
     if (event.deltaY > 0) {
@@ -13,7 +15,7 @@ document.addEventListener('wheel', (event) => {
         // 스크롤 업
         moveToSection(currentSection - 1);
     }
-});
+}
 
 function moveToSection(sectionIndex) {
     if (sectionIndex < 0 || sectionIndex >= totalSections) return;
@@ -32,9 +34,26 @@ function moveToSection(sectionIndex) {
     }, 700); // 700ms 동안 스크롤 차단
 }
 
+function updateEventListener() {
+    if (window.innerWidth <= 1024) {
+        if (isListenerActive) {
+            document.removeEventListener('wheel', handleWheelEvent);
+            isListenerActive = false;
+        }
+    } else {
+        if (!isListenerActive) {
+            document.addEventListener('wheel', handleWheelEvent);
+            isListenerActive = true;
+        }
+    }
+}
+
 window.addEventListener('resize', () => {
     const offset = currentSection * window.innerHeight;
     sections.forEach((page) => {
         page.style.transform = `translateY(-${offset}px)`;
     });
+    updateEventListener(); // 화면 크기 변화에 따라 이벤트 리스너 상태 업데이트
 });
+
+updateEventListener(); // 초기 로드 시 이벤트 리스너 상태 설정
