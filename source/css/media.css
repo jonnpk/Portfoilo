@@ -6,17 +6,38 @@
 
     section {
         height: auto;
-        margin-top: 150px;
-        margin-bottom: 150px;
+        padding: 150px 32px;
     }
 
     #intro-section {
-        margin-top: 32px;
-        margin-bottom: 32px;
+        padding: 32px 32px;
+        display: flex;
+        flex-direction: column;
     }
 
-    .intro-article-box {
-        grid-area: article-box;
+    #end-section {
+        padding-top: 150px;
+        padding-bottom: 32px;
+    }
+
+    header {
+        order: 1;
+    }
+
+    .title {
+        order: 2;
+    }
+
+    .intro-visual {
+        width: 60%;
+        display: block;
+        position: static;
+        align-self: center;
+        order: 3;
+    }
+
+    .intro-article-container {
+        order: 4;
     }
 
     .section-container.introduce {

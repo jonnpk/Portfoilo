@@ -23,6 +23,10 @@ section {
     transition: transform 0.7s ease-in-out;
 }
 
+#intro-section {
+    position: relative;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
@@ -136,9 +140,11 @@ header h2 {
 }
 
 .title {
+    width: fit-content;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 40px;
 }
 
 h1 {
@@ -157,7 +163,7 @@ h1 {
 .intro-article-box {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
 }
 
 .intro-article-title {
@@ -191,12 +197,18 @@ h1 {
 }
 
 .intro-visual {
-    max-height: 100%;
+    position: absolute;
+    top: 5%;
+    right: 32px;
+    width: 42%;
+    height: auto;
+    z-index: -10;
 }
 
 .intro-visual img {
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .cover-pic {
