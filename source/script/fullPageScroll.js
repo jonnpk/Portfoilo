@@ -1,55 +1,96 @@
-let currentSection = 0;
 const sections = document.querySelectorAll('.page');
-const totalSections = sections.length;
-let isScrolling = false; // 스크롤 제어 플래그
-let isListenerActive = true; // 이벤트 리스너 활성 상태 플래그
+let currentSection = 0;
+let isScrolling = false;
+let isFullPageScrollActive = true; // 풀페이지 스크롤 활성화 여부
 
+// 특정 섹션으로 이동
+function moveToSection(index) {
+    if (index < 0 || index >= sections.length || isScrolling || !isFullPageScrollActive) return;
 
-function handleWheelEvent(event) {
-    if (isScrolling) return; // 스크롤 중복 방지
+    isScrolling = true;
+    currentSection = index;
 
-    if (event.deltaY > 0) {
-        // 스크롤 다운
-        moveToSection(currentSection + 1);
-    } else {
-        // 스크롤 업
-        moveToSection(currentSection - 1);
-    }
-}
-
-function moveToSection(sectionIndex) {
-    if (sectionIndex < 0 || sectionIndex >= totalSections) return;
-
-    isScrolling = true; // 스크롤 중복 방지 활성화
-    currentSection = sectionIndex;
-    const offset = currentSection * window.innerHeight;
-
-    sections.forEach((page) => {
-        page.style.transform = `translateY(-${offset}px)`;
+    sections.forEach((page, i) => {
+        page.style.transform = `translateY(${(i - currentSection) * 100}vh)`;
     });
 
-    // 스크롤 완료 후 1초 후에 다시 스크롤 가능하게 설정
     setTimeout(() => {
         isScrolling = false;
-    }, 700); // 700ms 동안 스크롤 차단
+    }, 1000); // 애니메이션 시간과 동일
 }
 
-function updateEventListener() {
-    const shouldActivateListener = window.innerWidth > 1024;
+// 풀페이지 스크롤 활성화
+function enableFullPageScroll() {
+    isFullPageScrollActive = true;
+    document.body.style.overflow = "hidden"; // 일반 스크롤 비활성화
 
-    if (shouldActivateListener && !isListenerActive) {
-        document.addEventListener('wheel', handleWheelEvent);
-        isListenerActive = true;
-    } else if (!shouldActivateListener && isListenerActive) {
-        document.removeEventListener('wheel', handleWheelEvent);
-        isListenerActive = false;
+    sections.forEach((page, i) => {
+        page.style.position = "absolute"; // 풀페이지 스크롤 레이아웃
+        page.style.transition = "none"; // 초기화 시 애니메이션 비활성화
+        page.style.transform = `translateY(${(i - currentSection) * 100}vh)`;
+    });
+
+    // 초기화 이후 애니메이션 다시 활성화
+    setTimeout(() => {
+        sections.forEach((page) => {
+            page.style.transition = "transform 1s";
+        });
+    }, 0);
+
+    window.addEventListener("wheel", handleWheelEvent);
+}
+
+// 일반 스크롤 활성화
+function disableFullPageScroll() {
+    isFullPageScrollActive = false;
+    document.body.style.overflow = "auto"; // 일반 스크롤 활성화
+
+    sections.forEach((page) => {
+        page.style.position = "relative"; // 일반 스크롤 레이아웃
+        page.style.transition = "none"; // 애니메이션 제거
+        page.style.transform = "none"; // transform 초기화
+    });
+
+    window.removeEventListener("wheel", handleWheelEvent);
+}
+
+// 뷰포트 크기 확인 및 모드 전환
+function checkViewportWidth() {
+    if (window.innerWidth <= 1024) {
+        disableFullPageScroll(); // 1024px 이하에서는 일반 스크롤
+    } else {
+        enableFullPageScroll(); // 1024px 초과에서는 풀페이지 스크롤
     }
 }
 
-window.addEventListener('resize', () => {
-    const offset = currentSection * window.innerHeight;
-    sections.forEach((page) => {
-        page.style.transform = `translateY(-${offset}px)`;
-    });
-    updateEventListener(); // 화면 크기 변화에 따라 이벤트 리스너 상태 업데이트
+// 마우스 휠 이벤트 핸들러
+function handleWheelEvent(e) {
+    if (!isFullPageScrollActive || isScrolling) return;
+
+    if (e.deltaY > 0) {
+        // 아래로 스크롤
+        if (currentSection < sections.length - 1) {
+            moveToSection(currentSection + 1);
+        }
+    } else {
+        // 위로 스크롤
+        if (currentSection > 0) {
+            moveToSection(currentSection - 1);
+        }
+    }
+}
+
+// 초기화 시 스크롤 위치 강제 설정
+function resetScrollPosition() {
+    window.scrollTo(0, 0);
+}
+
+// 페이지 로드 시 초기화
+window.addEventListener("load", () => {
+    resetScrollPosition();
+    checkViewportWidth();
+    if (isFullPageScrollActive) moveToSection(0); // 풀페이지 스크롤 시 첫 번째 섹션으로 이동
 });
+
+// 뷰포트 크기 변경 시 모드 전환
+window.addEventListener("resize", checkViewportWidth);

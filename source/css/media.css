@@ -67,8 +67,12 @@
     }
 
     .section-container.work {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: clamp(16px, 2vw, 32px);
+        flex-direction: column;
+    }
+
+    .work-main-pic {
+        width: auto;
+        height: 952px;
+        flex: none;
     }
 }
