@@ -13,7 +13,7 @@ body {
     background-color: #000002;
     color: #FFF;
     font-family: 'Pretendard';
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 section {

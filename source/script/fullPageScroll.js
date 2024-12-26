@@ -35,16 +35,14 @@ function moveToSection(sectionIndex) {
 }
 
 function updateEventListener() {
-    if (window.innerWidth <= 1024) {
-        if (isListenerActive) {
-            document.removeEventListener('wheel', handleWheelEvent);
-            isListenerActive = false;
-        }
-    } else {
-        if (!isListenerActive) {
-            document.addEventListener('wheel', handleWheelEvent);
-            isListenerActive = true;
-        }
+    const shouldActivateListener = window.innerWidth > 1024;
+
+    if (shouldActivateListener && !isListenerActive) {
+        document.addEventListener('wheel', handleWheelEvent);
+        isListenerActive = true;
+    } else if (!shouldActivateListener && isListenerActive) {
+        document.removeEventListener('wheel', handleWheelEvent);
+        isListenerActive = false;
     }
 }
 
@@ -55,5 +53,3 @@ window.addEventListener('resize', () => {
     });
     updateEventListener(); // 화면 크기 변화에 따라 이벤트 리스너 상태 업데이트
 });
-
-updateEventListener(); // 초기 로드 시 이벤트 리스너 상태 설정

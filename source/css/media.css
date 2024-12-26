@@ -40,8 +40,35 @@
         order: 4;
     }
 
+    .section-container.cover {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+    }
+
+    .cover-title-box {
+        gap: 100px;
+    }
+
+    .cover-text li {
+        font-size: clamp(1.2rem, 1vw, 1.8rem);
+    }
+
     .section-container.introduce {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    article {
+        height: 850px;
+    }
+    
+    .article-text p {
+        font-size: clamp(1.2rem, 2vw, 1.4rem);
+    }
+
+    .section-container.work {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: clamp(16px, 2vw, 32px);
+    }
 }
