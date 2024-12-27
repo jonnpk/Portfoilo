@@ -1,4 +1,16 @@
-@media (min-width: 600px) and (max-width: 1024px) {
+@media (max-width: 1337px) {
+    
+    .cover-title-box h2 {
+        font-size: clamp(4.5rem, 6vw, 9.6rem);
+    }
+
+    .cover-text li {
+        font-size: clamp(1.2rem, 1vw, 1.8rem);
+    }
+}
+
+
+@media (max-width: 1024px) {
     
     body {
         overflow: auto;
@@ -46,6 +58,10 @@
         gap: 64px;
     }
 
+    .cover-pic {
+        aspect-ratio: 1024 / 952;
+    }
+
     .cover-title-box {
         gap: 100px;
     }
@@ -55,7 +71,7 @@
     }
 
     .section-container.introduce {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
 
     article {
@@ -74,5 +90,92 @@
         width: auto;
         height: 952px;
         flex: none;
+    }
+
+    .copy-pic {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 599px) {
+    
+    section {
+        height: auto;
+        padding: 100px 32px;
+    }
+
+    .section-container.introduce {
+        grid-template-columns: 1fr;
+    }
+
+    .section-container.work {
+        gap: 64px;
+    }
+
+    article {
+        gap: 20px;
+    }
+
+    .article-pic {
+        flex: none;
+        height: 500px;
+        order: 1;
+    }
+
+    .article-text {
+        order: 2;
+    }
+
+    .cover-title-box {
+        gap: 70px;
+    }
+
+    .work-main-pic {
+        height: 500px;
+    }
+
+    .work-article-container {
+        flex-direction: column;
+        gap: 150px;
+    }
+
+    .go-site-btn {
+        font-size: 16px;
+    }
+
+    .article-text {
+        gap: 8px;
+    }
+
+    .article-text h2 {
+        font-size: clamp(1.8rem, 3vw, 2rem);
+    }
+    
+    .article-text p {
+        font-size: clamp(1.2rem, 3vw, 1.4rem);
+    }
+
+    .cover-title-box.end h2 {
+        font-size: clamp(2.4rem, 3vw, 4rem);
+        font-weight: bold;
+    }
+    
+    .cover-title-box.end strong {
+        font-size: clamp(2.4rem, 7vw, 9.6rem);
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 64px;
+    }
+    
+    .contact {
+        width: 100%;
+    }
+
+    .copy-pic {
+        width: 25px;
+        height: 25px;
     }
 }

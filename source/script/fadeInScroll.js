@@ -7,11 +7,9 @@ const observer = new IntersectionObserver(
             if (entry.isIntersecting) {
                 // 요소가 화면에 나타난 경우
                 entry.target.classList.add("in");
-            } else {
-                // 요소가 화면에서 사라진 경우
-                entry.target.classList.remove("in");
             }
-        });
+        }
+        );
     },
     {
         threshold: 0.1, // 요소의 10%가 화면에 보이면 감지

@@ -216,7 +216,6 @@ h1 {
 
 .cover-pic {
     flex: 1;
-    aspect-ratio: 1024 / 952;
     max-height: 100%;
 }
 
@@ -232,7 +231,8 @@ h1 {
 .cover-title-box h2 {
     font-size: clamp(4.5rem, 7vw, 9.6rem);
     font-weight: 900;
-    line-height: 80%;
+    line-height: 85%;
+    text-align: right;
 }
 
 .cover-text {
@@ -343,14 +343,14 @@ footer {
 }
 
 .contact {
-    width: 400px;
+    width: 30%;
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
 .contact h3 {
-    font-size: 40px;
+    font-size: clamp(2rem, 3vw, 4rem);
     font-weight: 900;
 }
 
@@ -367,11 +367,11 @@ footer {
 }
 
 .adress strong {
-    font-size: 24px;
+    font-size: clamp(1.6rem, 1vw, 2.4rem);
 }
 
 .adress p {
-    font-size: 20px;
+    font-size: clamp(1.4rem, 1vw, 2rem);
     color: #cccccc;
 }
 
@@ -382,7 +382,7 @@ footer {
 }
 
 .copy p {
-    font-size: 14px;
+    font-size: clamp(1.2rem, 1vw, 1.4rem);
     color: #cccccc;
 }
 
