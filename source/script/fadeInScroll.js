@@ -7,6 +7,9 @@ const observer = new IntersectionObserver(
             if (entry.isIntersecting) {
                 // 요소가 화면에 나타난 경우
                 entry.target.classList.add("in");
+            } else {
+                if (window.innerWidth > 1024)
+                entry.target.classList.remove("in");
             }
         }
         );
