@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css?family=Monoton);
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes);
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg {
+  background-image: url(https://raw.githubusercontent.com/interaminense/repository-codepen/master/neon-codepen/bg-neon.jpg);
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: 1250px;
+  opacity: .3;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.wrapper {
+  position: absolute;
+  width: auto;
+  height: 150px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.wrapper h1 {
+  font-size: 100px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.wrapper h2 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: normal;
+  line-height: 10px;
+}
+
+.font1 { font-family: 'Monoton', cursive; }
+.font2 { font-family: 'Great Vibes', cursive; }
+
+.input-text {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 280px;
+  padding: 5px 20px;
+  border: none;
+  background-color: rgba(0, 0, 0, .4);
+  font-family: 'Monoton', cursive;
+  font-size: 35px;
+  box-shadow: 15px 15px 23px rgba(0, 0, 0, .2);
+  outline: none;
+  z-index: 1;
+}
+
+.buttons {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 20px;
+}
+
+.buttons button {
+  float: left;
+  border: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+  padding: 0;
+  cursor: pointer;
+}
+
+button.btn-pink { background-color: #E91E63; }
+button.btn-yellow { background-color: #FFC107; }
+button.btn-green { background-color: #8BC34A; }
+button.btn-blue { background-color: #03A9F4; }
+
+@mixin content($color, $id) {
+  
+  animation: bgNeon-#{$id} 3s infinite;
+  
+  $colorNeon: $color;
+  $colorLightNeon: lighten($colorNeon, 30%);
+  $shadowColor: adjust-hue($colorNeon, -30);
+  $bgNeon: adjust-color($shadowColor, $lightness: -40%);
+  
+  .input-text {
+    color: $colorNeon;
+  }
+  
+  .wrapper h1 {
+    animation: neon2-#{$id} 3s infinite;
+  }
+  
+  .wrapper h2 {
+    text-shadow: 0 0 10px $colorNeon, 0 0 30px $shadowColor;
+    color: $colorNeon;
+  }
+  
+  @keyframes neon2-#{$id} {
+    0% {
+      color: $colorNeon;
+      text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon, 0 0 280px $shadowColor;
+    }
+    80% {
+      color: $colorNeon;
+      text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon, 0 0 280px $shadowColor;
+    }
+    81% {
+      color: #222;
+      text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82), -2px 0px 4px #29121A;
+    }
+    94% {
+      color: #222;
+      text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82), -2px 0px 4px #29121A;
+    }
+    95% {
+      color: $colorNeon;
+      text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon, 0 0 280px $shadowColor;
+    }
+    96% {
+      color: #222;
+      text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82), -2px 0px 4px #29121A;
+    }
+    97% {
+      color: $colorNeon;
+      text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon, 0 0 280px $shadowColor;
+    }
+    98% {
+      color: $colorNeon;
+      text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon, 0 0 280px $shadowColor;
+    }
+    99% {
+      color: #222;
+      text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82), -2px 0px 4px #29121A;
+    }
+    100% {
+      color: $colorNeon;
+      text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon, 0 0 280px $shadowColor;
+    }
+  }
+  
+  @keyframes bgNeon-#{$id} {
+    0% { background-color: $bgNeon; }
+    80% { background-color: $bgNeon; }
+    81% { background-color: #111; }
+    94% { background-color: #111; }
+    95% { background-color: $bgNeon; }
+    96% { background-color: #111; }
+    97% { background-color: $bgNeon; }
+    98% { background-color: $bgNeon; }
+    99% { background-color: #111; }
+    100% { background-color: $bgNeon; }
+  }
+  
+}
+
+main.pink { @include content(#E91E63, 1); }
+main.yellow { @include content(#FFC107, 2); }
+main.green { @include content(#8BC34A, 3); }
+main.blue { @include content(#03A9F4, 4); }

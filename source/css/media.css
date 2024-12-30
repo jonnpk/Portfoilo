@@ -100,6 +100,10 @@
         flex: none;
     }
 
+    .end-visual {
+        width: 60%;
+    }
+
     .contact {
         width: 40%;
     }
@@ -123,6 +127,7 @@
     section {
         height: auto;
         padding: 100px 16px;
+        overflow: visible;
     }
 
     #intro-section {
@@ -192,7 +197,7 @@
     }
 
     .cover-title-box.end h2 {
-        font-size: clamp(2.4rem, 3vw, 4rem);
+        font-size: clamp(1.6rem, 3vw, 4rem);
         font-weight: bold;
     }
     

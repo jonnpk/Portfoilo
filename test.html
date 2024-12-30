@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <main class="{{color}}" ng-app="app" ng-controller="neon">
+        <div class="bg"></div>
+        <input autofocus id="focus" class="input-text" type="text" name="userName"
+        ng-model="user.name"
+        ng-model-options="{ getterSetter: true }" />
+        
+        <div class="buttons">
+          <button class="btn-pink" ng-click="getColor('pink')"></button>
+          <button class="btn-yellow" ng-click="getColor('yellow')"></button>
+          <button class="btn-green" ng-click="getColor('green')"></button>
+          <button class="btn-blue" ng-click="getColor('blue')"></button>
+        </div>
+        
+        <div class="wrapper">
+          <h1 class="font1">
+            <span ng-bind="user.name()"></span>
+            <h2 class="font2"> neon by @interaminense</h2>
+          </h1>
+        </div>
+      </main>
+</body>
+</html>
