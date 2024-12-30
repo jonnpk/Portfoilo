@@ -424,12 +424,12 @@ footer {
     transition: 2s;
 }
 
-.to-left {
-    transform: translateX(-200px);
-}
-
 .to-right {
     transform: translateX(200px);
+}
+
+.to-left {
+    transform: translateX(-200px);
 }
 
 .to-top {
@@ -444,3 +444,5 @@ footer {
     opacity: 1;
     transform: none;
 }
+
+

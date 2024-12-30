@@ -4,6 +4,7 @@ const content = document.getElementsByClassName("fade-interactive");
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
+
             if (entry.isIntersecting) {
                 // 요소가 화면에 나타난 경우
                 entry.target.classList.add("in");
@@ -15,9 +16,16 @@ const observer = new IntersectionObserver(
         );
     },
     {
-        threshold: 0.1, // 요소의 10%가 화면에 보이면 감지
+        threshold: 0, // 요소의 화면에 1px이라도 보이면 감지
     }
 );
+
+document.addEventListener("DOMContentLoaded", () => {
+    const content = document.getElementsByClassName("fade-interactive");
+    Array.from(content).forEach((element) => {
+        observer.observe(element);
+    });
+});
 
 // 모든 content 요소를 관찰
 Array.from(content).forEach((element) => {
