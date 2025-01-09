@@ -397,6 +397,12 @@ footer {
     gap: 16px;
 }
 
+.copy-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .copy p {
     font-size: clamp(1.2rem, 1vw, 1.4rem);
     color: #cccccc;
